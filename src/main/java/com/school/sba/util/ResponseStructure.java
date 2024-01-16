@@ -1,16 +1,20 @@
 package com.school.sba.util;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.stereotype.Controller;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Component
 @Getter
 @Setter
-public class ExceptionResponce<T> {
+@Controller
+@Component
+public class ResponseStructure<T> {
+	
 	private int status;
 	private String message;
-	private String rootCause;
+	private T data;
+	
+
 }
