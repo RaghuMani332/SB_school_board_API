@@ -1,4 +1,4 @@
-package com.school.sba;
+package com.school.sba.controller;
 
 
 
