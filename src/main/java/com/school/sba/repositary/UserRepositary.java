@@ -8,4 +8,6 @@ import com.school.sba.enumuration.UserRole;
 public interface UserRepositary extends JpaRepository<User, Integer>{
 
 	boolean existsByUserRole(UserRole role);
+	  UserRole getUserRoleByUserId(int id);
+	
 }

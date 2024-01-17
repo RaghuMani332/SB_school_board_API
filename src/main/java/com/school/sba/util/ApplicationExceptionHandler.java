@@ -18,11 +18,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.school.sba.exception.DuplicateEntryException;
 import com.school.sba.exception.InvalidUserException;
+import com.school.sba.exception.SchoolAlreadyPresentForTheAdminException;
 import com.school.sba.exception.UserAlreadyDeletedException;
 import com.school.sba.exception.UserNotFoundException;
 
 @RestControllerAdvice
-public class UserExceptionHandler extends ResponseEntityExceptionHandler{
+public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
@@ -59,6 +60,10 @@ public class UserExceptionHandler extends ResponseEntityExceptionHandler{
 	@ExceptionHandler(UserAlreadyDeletedException.class)
 	public ResponseEntity<Object> handlerForUserAlreadyDeletedException(UserAlreadyDeletedException une){
 		return errorStructure(HttpStatus.BAD_REQUEST, une.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE USER IS ALREADY DELETED");
+	}
+	@ExceptionHandler(SchoolAlreadyPresentForTheAdminException.class)
+	public ResponseEntity<Object> handlerForSchoolAlreadyPresentForTheAdminException(SchoolAlreadyPresentForTheAdminException sap){
+		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE SCHOOL IS ALREADY PRESENT");
 	}
 	
 }

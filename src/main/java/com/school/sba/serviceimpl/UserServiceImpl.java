@@ -1,10 +1,12 @@
 package com.school.sba.serviceimpl;
 
+import com.school.sba.requestdto.SchoolRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.school.sba.entity.School;
 import com.school.sba.entity.User;
 import com.school.sba.enumuration.UserRole;
 import com.school.sba.exception.DuplicateEntryException;
@@ -126,5 +128,12 @@ public class UserServiceImpl implements UserService{
 		 responceStructure.setStatus(HttpStatus.OK.value());
 		return new ResponseEntity<ResponseStructure<UserResponse>>(responceStructure,HttpStatus.OK);
 	}
+	//---------------------------------------------------------------------------------------------------
+//	@Override
+//	public ResponseEntity<ResponseStructure<School>> createSchoolByAdmin(int userId, SchoolRequest schoolRequest) {
+//		// TODO Auto-generated method stub
+//		
+//		return null;
+//	}
 
 }

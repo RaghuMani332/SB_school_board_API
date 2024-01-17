@@ -1,11 +1,7 @@
-package com.school.sba.entity;
+package com.school.sba.responsedto;
 
 import org.springframework.stereotype.Component;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,19 +10,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Component
 @Builder
 @NoArgsConstructor
-@Component
 @AllArgsConstructor
-public class School {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int schoolId;
+public class SchoolResponce {
 	private String schoolName;
 	private long contactNo;
 	private String emailId;
 	private String address;
-	
 }
