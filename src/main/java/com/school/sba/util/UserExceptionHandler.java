@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.school.sba.exception.DuplicateEntryException;
 import com.school.sba.exception.InvalidUserException;
+import com.school.sba.exception.UserAlreadyDeletedException;
+import com.school.sba.exception.UserNotFoundException;
 
 @RestControllerAdvice
 public class UserExceptionHandler extends ResponseEntityExceptionHandler{
@@ -50,4 +52,13 @@ public class UserExceptionHandler extends ResponseEntityExceptionHandler{
 		return errorStructure(HttpStatus.BAD_REQUEST, dee.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE USERNAME OR CONTACT OR EMAIL ALREADY PRESENT");
 
 	}
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<Object> handlerForUserNotFound(UserNotFoundException une){
+		return errorStructure(HttpStatus.BAD_REQUEST, une.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE USER IS NOT PRESENT");
+	}
+	@ExceptionHandler(UserAlreadyDeletedException.class)
+	public ResponseEntity<Object> handlerForUserAlreadyDeletedException(UserAlreadyDeletedException une){
+		return errorStructure(HttpStatus.BAD_REQUEST, une.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE USER IS ALREADY DELETED");
+	}
+	
 }
