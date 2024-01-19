@@ -5,10 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class SchoolNotFoundException  extends RuntimeException{
-
+@AllArgsConstructor
+public class AcademicProgramNotFound extends RuntimeException{
 	private String message;
-	
 }

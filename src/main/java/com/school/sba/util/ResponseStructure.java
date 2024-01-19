@@ -15,6 +15,10 @@ public class ResponseStructure<T> {
 	private int status;
 	private String message;
 	private T data;
+	@Override
+	public String toString() {
+		return "ResponseStructure [status=" + status + ", message=" + message + ", data=" + data + "]";
+	}
 	
 
 }

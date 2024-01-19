@@ -16,9 +16,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.school.sba.exception.AcademicProgramNotFound;
 import com.school.sba.exception.DuplicateEntryException;
 import com.school.sba.exception.InvalidUserException;
+import com.school.sba.exception.ScheduleIsPresent;
+import com.school.sba.exception.ScheduleNotFoundExcepttion;
 import com.school.sba.exception.SchoolAlreadyPresentForTheAdminException;
+import com.school.sba.exception.SchoolNotFoundException;
 import com.school.sba.exception.UserAlreadyDeletedException;
 import com.school.sba.exception.UserNotFoundException;
 
@@ -65,5 +69,24 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler{
 	public ResponseEntity<Object> handlerForSchoolAlreadyPresentForTheAdminException(SchoolAlreadyPresentForTheAdminException sap){
 		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE SCHOOL IS ALREADY PRESENT");
 	}
+	@ExceptionHandler(SchoolNotFoundException.class)
+	public ResponseEntity<Object> handlerForSchoolNotFoundException(SchoolNotFoundException sap){
+		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE SCHOOL IS NOT PRESENT");
+	}
+	@ExceptionHandler(ScheduleIsPresent.class)
+	public ResponseEntity<Object> handlerForScheduleIsPresent(ScheduleIsPresent sap){
+		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE SSCHEDULE IS ALREADY PRESENT");
+	}
+	@ExceptionHandler(ScheduleNotFoundExcepttion.class)
+	public ResponseEntity<Object> handlerForScheduleIsPresent(ScheduleNotFoundExcepttion sap){
+		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE SSCHEDULE IS NOT PRESENT");
+	}
+	@ExceptionHandler(AcademicProgramNotFound.class)
+	public ResponseEntity<Object> handlerForScheduleIsPresent(AcademicProgramNotFound sap){
+		return errorStructure(HttpStatus.BAD_REQUEST, sap.getMessage(), "THIS EXCEPTION IS DUE TO THAT THE ACADEMIC IS NOT PRESENT");
+	}
+	
+	
+	
 	
 }

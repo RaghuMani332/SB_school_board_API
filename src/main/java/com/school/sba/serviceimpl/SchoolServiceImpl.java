@@ -65,9 +65,8 @@ public class SchoolServiceImpl implements SchoolService{
 		contactNo(schoolRequest.getContactNo()).
 		emailId(schoolRequest.getEmailId()).
 		schoolName(schoolRequest.getSchoolName()).build();
-		
-		
 	}
+	
 
 
 
